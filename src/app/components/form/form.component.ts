@@ -13,6 +13,7 @@ export class FormComponent {
   newUrl = '';
   decodedUrl1 = "";
   decodedUrl = "";
+  year: number = new Date().getFullYear();
 
   generateUrl() {
     this.newUrl = this.url.substring(this.url.indexOf(this.argInit) + this.argInit.length, this.url.indexOf(this.argEnd));
@@ -27,6 +28,9 @@ export class FormComponent {
       .catch(() => {
         alert('Falha ao copiar o texto.');
       });
+  }
+  redirect(): void {
+    window.open(this.decodedUrl, '_blank');
   }
 
 
