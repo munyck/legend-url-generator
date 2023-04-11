@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormGroup, NgForm} from "@angular/forms";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-form',
@@ -13,52 +13,54 @@ export class FormComponent {
   ud = '';
   shareuid = '';
   um = '';
+  urlTeam = '';
+  urlInvite = '';
+  msgError = 'Obrigatório.';
+  msgTeam = '';
+  msgTeam1 = '';
+  msgInvite = '';
+  msgInvite1 = '';
   newUrlTeam = '';
   newUrlInvite = '';
-  urlTeam = '';
-  msgError = 'Obrigatório.';
-  msgErrorTeam = '';
-  msgErrorTeam1 = '';
-  msgErrorInvite = '';
-  msgErrorInvite1 = '';
-
 
 
   generateUrls(form: NgForm) {
-    console.log(form.valid)
     if (form.valid) {
       this.newUrlTeam = "http://novoevento78-lobr.oasgames.com/activity?sid="+this.sid+"&ud="+this.ud+"&type=team&shareuid="+this.shareuid+"&um="+this.um;
+      this.urlTeam = this.newUrlTeam;
       this.newUrlInvite = "http://novoevento78-lobr.oasgames.com/activity?sid="+this.sid+"&ud="+this.ud+"&type=invite&shareuid="+this.shareuid+"&um="+this.um;
+      this.urlInvite = this.newUrlInvite;
     }
   }
   copyTeam() {
-    this.msgErrorTeam = "";
-    this.msgErrorTeam1 = "";
+    this.msgTeam = "";
+    this.msgTeam1 = "";
     navigator.clipboard.writeText(this.newUrlTeam)
       .then(() => {
         if (this.newUrlTeam === '') {
           throw new Error();
         }
-        this.msgErrorTeam = 'URL copiada com Sucesso!';
+        this.msgTeam = 'URL copiada com Sucesso!';
+        this.newUrlTeam = '';
+
       })
       .catch(() => {
-        this.msgErrorTeam1 = 'Nada a copiar.';
+        this.msgTeam1 = 'Nada a copiar.';
       });
-
-
   }
   copyInvite() {
-    this.msgErrorInvite = "";
-    this.msgErrorInvite1 = "";
+    this.msgInvite = "";
+    this.msgInvite1 = "";
     navigator.clipboard.writeText(this.newUrlInvite)
       .then(() => {
         if (this.newUrlInvite === '') {
           throw new Error();
         }
-        this.msgErrorInvite = 'URL copiada com Sucesso!';
+        this.msgInvite = 'URL copiada com Sucesso!';
+        this.newUrlInvite = '';
       })
       .catch(() => {
-        this.msgErrorInvite1 = 'Nada a copiar.';
+        this.msgInvite1 = 'Nada a copiar.';
       });
   }
 
