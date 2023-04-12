@@ -30,11 +30,14 @@ export class FormComponent {
       this.urlTeam = this.newUrlTeam;
       this.newUrlInvite = "http://novoevento78-lobr.oasgames.com/activity?sid="+this.sid+"&ud="+this.ud+"&type=invite&shareuid="+this.shareuid+"&um="+this.um;
       this.urlInvite = this.newUrlInvite;
+    }else{
+      this.msgError = 'Obrigatório.';
     }
   }
   copyTeam() {
     this.msgTeam = "";
     this.msgTeam1 = "";
+
     navigator.clipboard.writeText(this.newUrlTeam)
       .then(() => {
         if (this.newUrlTeam === '') {
@@ -51,6 +54,7 @@ export class FormComponent {
   copyInvite() {
     this.msgInvite = "";
     this.msgInvite1 = "";
+
     navigator.clipboard.writeText(this.newUrlInvite)
       .then(() => {
         if (this.newUrlInvite === '') {

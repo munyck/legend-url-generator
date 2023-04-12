@@ -76,13 +76,13 @@
                 </button>
                 <button
                   type="submit"
-                  (click)="legendForm.reset()"
+                  (click)="legendForm.reset([msgTeam = '', msgTeam1 = '', msgInvite = '', msgInvite1 = '', msgError = ''])"
                   class="mt-3 text-sm font-semibold bg-gray-800 w-full text-white rounded-lg px-6 py-3 block shadow-xl hover:text-white hover:bg-black">
                   Limpar
                 </button>
               </div>
 
-              <div class="mx-auto max-w-lg mt-4">
+              <div class="mx-auto max-w-lg mt-2">
                 <div class="py-1">
                   <span class="px-1 text-sm text-gray-600">URL Equipe:</span>
                   <button (click)="copyTeam()" class="rounded hover:text-white hover:bg-black">
@@ -128,7 +128,7 @@
       </div>
     </div>
   </div>
-  <div class="flex justify-center md:mt-4">
+  <div class="flex justify-center md:mt-12">
     <span class="text-gray-200">
       &copy; {{ year }} Dominus Dev - Todos Direitos Reservados.
     </span>
