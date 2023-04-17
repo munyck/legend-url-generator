@@ -45,7 +45,6 @@ export class FormComponent {
         }
         this.msgTeam = 'URL copiada com Sucesso!';
         this.newUrlTeam = '';
-
       })
       .catch(() => {
         this.msgTeam1 = 'Nada a copiar.';
@@ -65,6 +64,7 @@ export class FormComponent {
       })
       .catch(() => {
         this.msgInvite1 = 'Nada a copiar.';
+        this.newUrlInvite = '';
       });
   }
 
